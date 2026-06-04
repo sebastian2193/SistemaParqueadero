@@ -1,9 +1,8 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://sistemaparqueadero-lr67.onrender.com"
+  baseURL: "https://sistemaparqueadero-lr67.onrender.com/api"
 });
-
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
