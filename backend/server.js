@@ -29,12 +29,12 @@ app.get("/test", (req, res) => {
 });
 
 // Rutas del sistema
-app.use("/vehiculos", vehiculosRoutes);
-app.use("/pagos", pagosRoutes);
-app.use("/reportes", reportesRoutes);
-app.use("/dashboard", dashboardRoutes);
-app.use("/auth", authRoutes);
-app.use("/pdf", pdfRoutes);
+app.use("/api/vehiculos", vehiculosRoutes);
+app.use("/api/pagos", pagosRoutes);
+app.use("/api/reportes", reportesRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/pdf", pdfRoutes);
 // Puerto
 const PORT = process.env.PORT || 3001;
 
