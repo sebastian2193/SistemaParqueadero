@@ -1,36 +1,36 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 
 function Login() {
 
-  const [usuario,setUsuario] =
-  useState("");
+  const [usuario, setUsuario] = useState("");
+  const [password, setPassword] = useState("");
 
-  const [password,setPassword] =
-  useState("");
+  const navigate = useNavigate();
 
   const ingresar = async () => {
 
     try {
 
-      const respuesta =
-      await api.post(
-        "/auth/login",
-        {
-          usuario,
-          password
-        }
-      );
+      const respuesta = await api.post("/auth/login", {
+        usuario,
+        password
+      });
 
-      localStorage.setItem(
-        "token",
-        respuesta.data.token
-      );
+      console.log("RESPUESTA BACKEND:", respuesta.data);
+
+      // 🔐 guardar token
+      localStorage.setItem("token", respuesta.data.token);
 
       alert("Bienvenido");
 
-    } catch(error) {
+      // 🚀 redirigir al dashboard
+      navigate("/dashboard");
 
+    } catch (error) {
+
+      console.log(error);
       alert("Credenciales inválidas");
 
     }
@@ -47,7 +47,7 @@ function Login() {
         className="form-control mb-3"
         placeholder="Usuario"
         value={usuario}
-        onChange={(e)=>setUsuario(e.target.value)}
+        onChange={(e) => setUsuario(e.target.value)}
       />
 
       <input
@@ -55,7 +55,7 @@ function Login() {
         className="form-control mb-3"
         placeholder="Contraseña"
         value={password}
-        onChange={(e)=>setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
 
       <button
