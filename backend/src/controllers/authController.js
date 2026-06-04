@@ -26,11 +26,17 @@ const login = (req, res) => {
 
             const usuarioDB = resultado[0];
 
-            const coincide =
-            await bcrypt.compare(
+            // 🔍 DEBUG IMPORTANTE
+            console.log("PASSWORD RECIBIDA:", password);
+            console.log("HASH BD:", usuarioDB.password);
+
+            const coincide = await bcrypt.compare(
                 password,
                 usuarioDB.password
             );
+
+            // 🔍 DEBUG RESULTADO
+            console.log("RESULTADO BCRYPT:", coincide);
 
             if (!coincide) {
 
