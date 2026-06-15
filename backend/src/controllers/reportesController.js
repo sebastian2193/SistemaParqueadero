@@ -4,6 +4,7 @@ const obtenerReporte = (req, res) => {
 
   const sql = `
     SELECT
+      s.id AS salida_id,
       v.placa,
       v.tipo,
       i.fecha_ingreso,

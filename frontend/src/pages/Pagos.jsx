@@ -18,11 +18,18 @@ function Pagos() {
         }
       );
 
-      alert(respuesta.data.mensaje);
+      alert(
+        `Pago registrado correctamente\n\nID Pago: ${respuesta.data.pagoId}`
+      );
+
+      setSalidaId("");
+      setMetodo("Efectivo");
 
     } catch (error) {
 
       console.log(error);
+
+      alert("Error al registrar el pago");
 
     }
 
@@ -30,7 +37,7 @@ function Pagos() {
 
   return (
 
-    <div>
+    <div className="container">
 
       <h2>Registrar Pago</h2>
 
@@ -38,13 +45,13 @@ function Pagos() {
         className="form-control mb-3"
         placeholder="ID Salida"
         value={salidaId}
-        onChange={(e)=>setSalidaId(e.target.value)}
+        onChange={(e) => setSalidaId(e.target.value)}
       />
 
       <select
         className="form-control mb-3"
         value={metodo}
-        onChange={(e)=>setMetodo(e.target.value)}
+        onChange={(e) => setMetodo(e.target.value)}
       >
         <option>Efectivo</option>
         <option>Nequi</option>

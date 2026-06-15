@@ -99,6 +99,7 @@ function Reportes() {
 
             <tr>
 
+              <th>ID Salida</th>
               <th>Placa</th>
               <th>Tipo</th>
               <th>Ingreso</th>
@@ -117,6 +118,8 @@ function Reportes() {
               datos.map((item, index) => (
 
                 <tr key={index}>
+
+                  <td>{item.salida_id}</td>
 
                   <td>{item.placa}</td>
 
@@ -151,7 +154,7 @@ function Reportes() {
               <tr>
 
                 <td
-                  colSpan="6"
+                  colSpan="7"
                   className="text-center"
                 >
                   No hay registros
