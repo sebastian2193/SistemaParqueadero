@@ -106,6 +106,8 @@ function Reportes() {
               <th>Salida</th>
               <th>Minutos</th>
               <th>Valor</th>
+              <th>Método Pago</th>
+              <th>Fecha Pago</th>
 
             </tr>
 
@@ -145,6 +147,18 @@ function Reportes() {
                       .toLocaleString()}
                   </td>
 
+                  <td>
+                    {item.metodo_pago || "Pendiente"}
+                  </td>
+
+                  <td>
+                    {item.fecha_pago
+                      ? new Date(
+                          item.fecha_pago
+                        ).toLocaleString()
+                      : "Sin pago"}
+                  </td>
+
                 </tr>
 
               ))
@@ -154,7 +168,7 @@ function Reportes() {
               <tr>
 
                 <td
-                  colSpan="7"
+                  colSpan="9"
                   className="text-center"
                 >
                   No hay registros
