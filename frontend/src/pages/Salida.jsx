@@ -55,13 +55,35 @@ function Salida() {
 
           <h4>Detalle de Cobro</h4>
 
-          <p><strong>Placa:</strong> {resultado.placa}</p>
+          <p>
+            <strong>ID Salida:</strong>
+            {" "}
+            {resultado.salidaId}
+          </p>
 
-          <p><strong>Minutos:</strong> {resultado.minutos}</p>
+          <p>
+            <strong>Placa:</strong>
+            {" "}
+            {resultado.placa}
+          </p>
 
-          <p><strong>Tarifa:</strong> ${resultado.tarifaMinuto}</p>
+          <p>
+            <strong>Minutos:</strong>
+            {" "}
+            {resultado.minutos}
+          </p>
 
-          <p><strong>Total:</strong> ${resultado.valor}</p>
+          <p>
+            <strong>Tarifa por Minuto:</strong>
+            {" "}
+            ${resultado.tarifaMinuto}
+          </p>
+
+          <p>
+            <strong>Total a Pagar:</strong>
+            {" "}
+            ${Number(resultado.valor).toLocaleString()}
+          </p>
 
         </div>
 
